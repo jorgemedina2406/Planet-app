@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-segment class="ion-padding">
+            <h5>Términos y Privacidad</h5>
+        </ion-segment>
+        <ion-buttons slot="end" class="ion-padding">
+            <ion-icon slot="icon-only" src="assets/icon/info.svg"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <div [innerHtml]="myTemplate | safe: 'html'">
+                </div>
+                <p><strong>NIKOLL RETAIL PROPERTIES SA A DE CV</strong> con domicilio en Gutenberg 232, Anzures, c.p. 11590 Ciudad de México representado por HUGO DAVID NICOLAS RAMIREZ</p>
+
+                <p>Declara Que en previsión de lo dispuesto en la ley de protección de datos personales en su posesión de personales, la declarante se compromete a limitar el uso de la información proporcionada por el CLIENTE abajo firmante, para el estudio
+                    y análisis de operación de financiamiento por el mismo solicitada.</p>
+                <p>Así mismo declara que dicha información permanecerá en los archivos de la empresa por el tiempo que medie la relación contractual de ambas partes, pudiendo en cualquier momento el CLIENTE solicitar el acceso, rectificación, cancelación
+                    u oposición, parea el caso de que las circunstancias informadas por el mismo a la declarante sufran modificación total o parcial, todo ello de conformidad con lo previsto en la ley mediante solicitud escrita presentada por la empresa
+                    declarante
+                </p>
+                <p>Si en cualquier momento se estableciera alguna modificación en el contenido de este documento, el cliente será debidamente informado por el declarante por los medios y procedimientos habituales que el mismo designe.</p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

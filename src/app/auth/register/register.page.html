@@ -1,0 +1,105 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [text]="buttonText"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="forma" (ngSubmit)="register()">
+        <ion-grid>
+            <ion-row justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div class="ion-text-center">
+                        <img src="assets/images/logo.png" alt="" width="50%">
+                        <h3>Crea una cuenta!</h3>
+                    </div>
+                    <div class="ion-padding">
+                        <ion-item>
+                            <ion-label position="floating">Nombre *</ion-label>
+                            <ion-input formControlName="name" name="name" type="text" required></ion-input>
+
+                        </ion-item>
+                        <div *ngIf="forma.get('name').hasError('required') && forma.get('name').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese su nombre</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">e-mail *</ion-label>
+                            <ion-input formControlName="email" name="email" type="email" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('email').hasError('required') && forma.get('email').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese su email</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Calle *</ion-label>
+                            <ion-input formControlName="street" name="street" type="text" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('street').hasError('required') && forma.get('street').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese la calle</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Nro Exterior *</ion-label>
+                            <ion-input formControlName="nro_ext" name="nro_ext" type="text" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('nro_ext').hasError('required') && forma.get('nro_ext').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese el numero exterior</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Nro Interior *</ion-label>
+                            <ion-input formControlName="nro_int" name="nro_int" type="text" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('nro_int').hasError('required') && forma.get('nro_int').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese el numero interior</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Colonia *</ion-label>
+                            <ion-input formControlName="colony" name="colony" type="text" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('colony').hasError('required') && forma.get('colony').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese su colonia</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Municipio *</ion-label>
+                            <ion-input formControlName="municipality" name="municipality" type="text" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('municipality').hasError('required') && forma.get('municipality').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese su municipio</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Entidad Federal *</ion-label>
+                            <ion-input formControlName="federal_entity" name="federal_entity" type="text" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('federal_entity').hasError('required') && forma.get('federal_entity').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese su entidad federal</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Postal *</ion-label>
+                            <ion-input formControlName="postal" name="postal" type="text" required></ion-input>
+                        </ion-item>
+                        <div *ngIf="forma.get('postal').hasError('required') && forma.get('postal').touched">
+                            <small color="danger" class="text-danger font-weight-bold">Por favor, ingrese su codigo postal</small>
+                        </div>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Contraseña *</ion-label>
+                            <ion-input #passwordEyeRegister [type]="passwordTypeInput" formControlName="password" name="password"></ion-input>
+                            <button slot="end" class="btn_eye_icon" (click)="togglePasswordMode()">
+                                <ion-icon [name]="iconpassword"></ion-icon>
+                            </button>
+                        </ion-item>
+                        <ion-item class="ion-padding-top">
+                            <ion-label position="floating">Repetir Contraseña *</ion-label>
+                            <ion-input #passwordEyeRegisterRepeat formControlName="password2" name="password2" [type]="passwordTypeInputRepeat" required></ion-input>
+                            <button slot="end" class="btn_eye_icon_repeat" (click)="togglePasswordModeRepeat()">
+                                <ion-icon [name]="iconpasswordRepeat"></ion-icon>
+                            </button>
+                        </ion-item>
+                    </div>
+                    <div padding>
+                        <ion-button size="large" color="primary" type="submit" expand="block">Registrar</ion-button>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

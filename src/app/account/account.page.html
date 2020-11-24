@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-segment>
+            <h5>Mi cuenta</h5>
+        </ion-segment>
+        <ion-buttons slot="end" class="contact-icon ion-padding">
+            <ion-icon slot="icon-only" name="contact"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div>
+        <ion-toolbar class="ion-padding ion-text-center">
+            <label for="file-upload1" class="image" *ngIf="authService.user">
+                <img width="80px" height="80px" class="circle-pic" [src]="authService.user.imagen | image:'user':authService.user.id" *ngIf="!imagenTemp">
+                <img width="80px" height="80px" class="circle-pic" [src]="imagenTemp" *ngIf="imagenTemp">
+            </label>
+            <input (change)="seleccionImage($event)" id="file-upload1" name="file" type="file" style="display: none;" />
+
+            <div *ngIf="authService.user">
+                <h6 color="light">{{ authService.user.nombre }}</h6>
+                <small><a (click)="navigatePage('/menu/profile')">Editar Perfil</a></small>
+            </div>
+        </ion-toolbar>
+    </div>
+
+    <ion-item-group class="ion-padding">
+        <ion-item (click)="navigatePage('/menu/profile')">
+            <ion-icon src="/assets/icon/avatar.svg" item-start class="ion-padding"></ion-icon>
+            Datos personales
+        </ion-item>
+    </ion-item-group>
+
+</ion-content>

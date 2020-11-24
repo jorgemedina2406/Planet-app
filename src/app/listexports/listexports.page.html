@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-segment class="segment-search ion-padding">
+            <div class="searchbar">
+                <ion-searchbar type="text" debounce="500" (change)="searchByKeyword(val)" (ionInput)="getItems($event)" placeholder="Buscar por referencia" animated></ion-searchbar>
+            </div>
+        </ion-segment>
+        <ion-buttons slot="end" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <!-- <ion-select #sectionSelect interface="alert" cancel-text="Cancelar" [hidden]='showList' (ionChange)='setFilter($event)'>
+        <ion-select-option value="asc">Menor precio</ion-select-option>
+        <ion-select-option value="desc">Mayor precio</ion-select-option>
+    </ion-select> -->
+
+    <ion-list *ngIf="isItemAvailable">
+        <ng-container *ngFor="let item of items">
+            <ion-item (click)="navigatePageExport('/menu/export/', item.id)">
+                <label>
+                    <h6 style="margin-bottom: 0px" *ngIf="items.length > 0">
+                        {{ item.reference }}
+                    </h6>
+                    <small>Exportacion</small>
+                </label>
+            </ion-item>
+        </ng-container>
+    </ion-list>
+
+    <ng-container *ngFor="let export of exports">
+        <ion-card [(color)]="export.color" (click)="navigatePageExport('/menu/export', export.id)">
+            <ion-card-content no-padding>
+                <ion-row class="ion-text-center">
+                    <ion-col class="pl-3 py-3">
+                        <h5>Referencia</h5>
+                        <small>{{ export.reference }}</small>
+                        <!-- </a> -->
+                    </ion-col>
+                    <ion-col class="pl-3 py-3">
+                        <h5>Courier</h5>
+                        <small>{{ export.courier }}</small>
+                        <!-- </a> -->
+                    </ion-col>
+                    <ion-col size="3" class="pl-3 py-3">
+                        <h5>Mawb</h5>
+                        <small>{{ export.mawb }}</small>
+                        <!-- </a> -->
+                    </ion-col>
+                    <ion-col class="pl-3 py-3">
+                        <h5>Hawb</h5>
+                        <small>{{ export.hawb }}</small>
+                        <!-- </a> -->
+                    </ion-col>
+                    <ion-col class="pl-3 py-3">
+                        <h5>Status</h5>
+                        <ion-badge color="medium"><small>{{ export.status_id }}</small></ion-badge>
+                        <!-- </a> -->
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+    </ng-container>
+</ion-content>

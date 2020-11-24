@@ -1,0 +1,51 @@
+ion-content {
+    border-top: 10px solid #3576c2;
+}
+
+ion-grid {
+    height: 100%;
+    align-items: center;
+}
+
+ion-row {
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.formLogin {
+    height: 100%;
+    justify-content: center;
+    background-image: url("../../../assets/images/bg-4.png");
+}
+
+.link-jump {
+    color: #3576c2 !important;
+    text-decoration: none;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+ion-item {
+    --background: none;
+    --color: #ffffff;
+    font-weight: 700;
+}
+
+.btn_eye_icon {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    background: transparent;
+    ion-icon {
+        font-size: 22px;
+        color: #fff;
+    }
+}
+
+.btn_eye_icon:focus {
+    outline: none !important;
+}

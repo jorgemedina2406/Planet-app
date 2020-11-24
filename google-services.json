@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "49047195893",
+    "firebase_url": "https://planet-552e8.firebaseio.com",
+    "project_id": "planet-552e8",
+    "storage_bucket": "planet-552e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49047195893:android:2b3361bf43d07e2de535bc",
+        "android_client_info": {
+          "package_name": "com.planetlogistic.apiplanet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49047195893-8b5q9f2ig82079em3mf9l7kfrf0uld56.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-KSfik_-jLaLflKxsQUBwDhYeYRNrddU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49047195893-8b5q9f2ig82079em3mf9l7kfrf0uld56.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

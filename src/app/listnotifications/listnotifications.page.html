@@ -1,0 +1,88 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-segment class="segment-search ion-padding">
+            <div class="searchbar">
+                <ion-searchbar type="text" debounce="500" (change)="searchByKeyword(val)" (ionInput)="getItems($event)" placeholder="Buscar por referencia" animated></ion-searchbar>
+            </div>
+        </ion-segment>
+        <ion-buttons slot="end" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-row>
+        <ion-col size="12" class="ion-text-center" *ngIf="loading">
+            <ion-spinner name="lines"></ion-spinner>
+        </ion-col>
+    </ion-row>
+    <!-- <ion-select #sectionSelect interface="alert" cancel-text="Cancelar" [hidden]='showList' (ionChange)='setFilter($event)'>
+        <ion-select-option value="asc">Menor precio</ion-select-option>
+        <ion-select-option value="desc">Mayor precio</ion-select-option>
+    </ion-select> -->
+
+    <ion-list *ngIf="isItemAvailable">
+        <ng-container *ngIf="length > 0">
+            <ng-container *ngFor="let item of items">
+                <ion-item (click)="navigatePageImport('/menu/import/', item.id)" *ngIf="items.length > 0">
+                    <label>
+                        <h6 style="margin-bottom: 0px">
+                            {{ item.reference }}
+                        </h6>
+                        <small>Importacion</small>
+                    </label>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="length == 0">
+            <ng-container>
+                <ion-item>
+                    <label class="ion-padding-bottom">
+                            <h6 style="margin-bottom: 0px">
+                                No se encontraron resultados
+                            </h6>
+                        </label>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+    </ion-list>
+
+    <ng-container *ngFor="let notification of notifications">
+        <ion-card>
+            <!-- <ion-card-header text-center>
+                <ion-card-title>El estatus ha cambiado!</ion-card-title>
+            </ion-card-header> -->
+
+            <ion-card-content>
+                <ion-row>
+                    <ion-col size="2" class="pl-3 py-3">
+                        <img class="campana" src="/assets/icon/bell.svg" alt="">
+                        <!-- <img slot="icon-only" color="dark" src="/assets/icon/import.png"></ion-icon> -->
+                    </ion-col>
+                    <ion-col size="7" class="pl-3 py-3">
+                        <h3 color="dark">El estatus ha cambiado!</h3>
+                        <small>Ref: <span class="estatus">{{ notification.referencia}}</span></small><br>
+                        <small>Estatus: <span class="estatus">{{ notification.estatus}}</span></small>
+                    </ion-col>
+                    <ion-col size="3" class="pl-3 py-3">
+                        <!-- <ion-buttons slot="warning"> -->
+                        <ion-button color="warning" size="small" (click)="navigatePageNotification('/second', notification.id, notification.estatus, notification.notificacion)">
+                            Ver mas
+                        </ion-button>
+                        <!-- </ion-buttons> -->
+                    </ion-col>
+                </ion-row>
+                <!-- El nuevo estatus es: {{ notification.estatus}}
+                <h2 text-center padding-top><a href="">Ver mas informacion</a></h2> -->
+            </ion-card-content>
+        </ion-card>
+    </ng-container>
+</ion-content>

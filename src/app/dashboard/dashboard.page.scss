@@ -1,0 +1,37 @@
+.searchbar {
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.searchbar-input {
+    width: 290px !important;
+}
+
+ion-searchbar {
+    width: 100% !important;
+}
+
+ion-list {
+    width: 90%;
+    position: absolute !important;
+    z-index: 4000;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+ion-toolbar {
+    .notification-icon-button {
+        --overflow: visible;
+        ion-badge {
+            position: absolute;
+            background: #f70b0b;
+            border-radius: 50%;
+            opacity: 0.9;
+            top: 0.4rem;
+            right: 0.3rem;
+        }
+    }
+}
+
+$searchbar-ios-input-text-color: #000;

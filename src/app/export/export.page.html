@@ -1,0 +1,350 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-segment class="ion-padding-top">
+            Planet Logistic
+        </ion-segment>
+        <ion-buttons slot="end" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-row>
+        <ion-col size="12" class="ion-text-center" *ngIf="loading">
+            <ion-spinner name="lines"></ion-spinner>
+        </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="export">
+        <ion-col col-12>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Referencia: </small>
+                        <div><small class="ion-margin-top">{{ export.reference }}</small></div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Courier: </small>
+                        <div><small>{{ export.courier }}</small></div>
+                    </ion-text>
+                </ion-col>
+
+            </ion-row>
+            <ion-toolbar color="light">
+                <ion-row class="ion-padding-top ion-padding-bottom">
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Fecha de notificacion: </small>
+                            <div><small>{{ export.dateNotification }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Mawb: </small>
+                            <div><small>{{ export.mawb }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Hawb: </small>
+                        <div><small>{{ export.hawb }}</small></div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Linea Aerea: </small>
+                        <div><small>{{ export.line }}</small></div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <ion-toolbar color="light">
+                <ion-row class="ion-padding-top ion-padding-bottom">
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Nro de vuelo: </small>
+                            <div><small>{{ export.flight }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Fecha de vuelo: </small>
+                            <div><small class="ion-margin-top">{{ export.date_flight }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col size="6">
+                    <ion-text color="dark">
+                        <small class="font-weight-bold">CR: </small>
+                        <div><small>{{ export.cr }}</small></div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-text color="dark">
+                        <small class="font-weight-bold">Incoterm: </small>
+                        <div><small class="ion-margin-top">{{ export.incoterm }}</small></div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <ion-toolbar color="light">
+                <ion-row class="ion-padding-top ion-padding-bottom">
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Exportador: </small>
+                            <div><small>{{ export.exporter }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Shipper: </small>
+                            <div><small>{{ export.shippers }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Consignatorio: </small>
+                        <div><small class="ion-margin-top">{{ export.consignee }}</small></div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Pais destino: </small>
+                        <div><small>{{ export.country }}</small></div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <ion-toolbar color="light">
+                <ion-row class="ion-padding-top ion-padding-bottom">
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Aeropuerto: </small>
+                            <div><small class="ion-margin-top">{{ export.airport }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Nro de facturas: </small>
+                            <div><small class="ion-margin-top">{{ export.nro_invoices }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col size="12">
+                    <ion-text>
+                        <small class="font-weight-bold">Fecha de factura: </small>
+                        <div><small>{{ export.date_invoices }}</small></div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <hr>
+            <ion-toolbar color="dark" class="ion-text-center">
+                <h4 style="margin-top: 5px">Datos de la Patente</h4>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Patente: </small>
+                        <div><small class="ion-margin-top">{{ export.patent }}</small></div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Agente Aduanal: </small>
+                        <div><small>{{ export.agent_aduanal }}</small></div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <hr>
+            <ion-toolbar color="dark" class="ion-text-center">
+                <h4 style="margin-top: 5px">Datos de los pedimentos</h4>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom" *ngFor="let item of export.pediments">
+                <ion-col size="4">
+                    <ion-text>
+                        <small class="font-weight-bold">Pedimento: </small>
+                        <div *ngFor="let pediment of export.pedimentos">
+                            <small class="ion-margin-top" *ngIf="pediment.id === item.pediment.id">{{ pediment.pediment }}</small>
+                            <small class="ion-margin-top" *ngIf="pediment.id !== item.pediment.id"></small>
+                        </div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="4">
+                    <ion-text>
+                        <small class="font-weight-bold">Nro: </small>
+                        <div><small>{{ item.nro_pediment }}</small></div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="4">
+                    <ion-text>
+                        <small class="font-weight-bold">Fecha: </small>
+                        <div><small>{{ item.date_pay }}</small></div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <ion-toolbar color="dark" class="ion-text-center">
+                <h4 style="margin-top: 5px">Otros Datos</h4>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Fecha recepcion muestra:</small>
+                        <div><small class="ion-margin-top">{{ export.sample_reception_date }}</small></div>
+                    </ion-text>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-text>
+                        <small class="font-weight-bold">Fecha cruce pedimento:</small>
+                        <div><small>{{ export.date_crossing_pediment }}</small></div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <ion-toolbar color="light">
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Reconocimiento aduanero:</small>
+                            <div><small>{{ export.recognition }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text color="dark">
+                            <small class="font-weight-bold">Hora de salida de reconocimiento:</small>
+                            <div><small>{{ export.recognition_departure_time }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-toolbar>
+            <hr>
+            <ion-toolbar color="dark" class="ion-text-center">
+                <h4 style="margin-top: 5px">Datos de los protocolos</h4>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col *ngFor="let item of export.protocols; let idx = index" size="4">
+                    <ion-text>
+                        <small class="font-weight-bold">Protocolo {{ idx + 1 }}: </small>
+                        <div *ngFor="let protocol of export.protocolos">
+                            <small class="ion-margin-top" *ngIf="protocol.id === item.protocol">{{ protocol.name }}</small>
+                            <small class="ion-margin-top" *ngIf="protocol.id !== item.protocol"></small>
+                        </div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <hr>
+            <ion-toolbar color="dark" class="ion-text-center">
+                <h4 style="margin-top: 5px">Datos de las cartas</h4>
+            </ion-toolbar>
+            <ion-row class="ion-padding-top ion-padding-bottom">
+                <ion-col *ngFor="let item of export.products; let idx = index" size="4">
+                    <ion-text>
+                        <small class="font-weight-bold">Carta {{ idx + 1 }}: </small>
+                        <div *ngFor="let card of export.cartas">
+                            <small class="ion-margin-top" *ngIf="card.id === item.card">{{ card.name }}</small>
+                            <small class="ion-margin-top" *ngIf="card.id !== item.card"></small>
+                        </div>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+            <hr>
+            <ion-toolbar color="dark" class="ion-text-center">
+                <h4 style="margin-top: 5px">Datos de los productos</h4>
+            </ion-toolbar>
+            <ng-container *ngFor="let item of export.products; let idx = index">
+                <ion-row class="ion-padding-top ion-padding-bottom">
+                    <ion-col size="6">
+                        <ion-text>
+                            <small class="font-weight-bold">Producto: </small>
+                            <div *ngFor="let product of export.productos">
+                                <small class="ion-margin-top" *ngIf="product.id === item.product">{{ product.name }}</small>
+                                <small class="ion-margin-top" *ngIf="product.id !== item.product"></small>
+                            </div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-toolbar color="light">
+                    <ion-row class="ion-padding-top ion-padding-bottom">
+                        <ion-col size="6">
+                            <ion-text color="dark">
+                                <small class="font-weight-bold">Cantidad:</small>
+                                <div><small class="ion-margin-top">{{ item.qty }}</small></div>
+                            </ion-text>
+                        </ion-col>
+                        <ion-col size="6">
+                            <ion-text color="dark">
+                                <small class="font-weight-bold">Unidad de factura:</small>
+                                <div><small class="ion-margin-top">{{ item.unid }}</small></div>
+                            </ion-text>
+                        </ion-col>
+                    </ion-row>
+                </ion-toolbar>
+                <ion-row class="ion-padding-top ion-padding-bottom">
+                    <ion-col size="6">
+                        <ion-text>
+                            <small class="font-weight-bold">Valor Producto:</small>
+                            <div><small class="ion-margin-top">{{ item.price }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text>
+                            <small class="font-weight-bold">Fraccion Arancelaria:</small>
+                            <div><small class="ion-margin-top">{{ item.fraccion }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ng-container>
+
+            <hr>
+
+            <ion-toolbar color="dark" class="ion-text-center">
+                <h4 style="margin-top: 5px">Datos de los permisos</h4>
+            </ion-toolbar>
+            <ng-container *ngFor="let item of export.permissions; let idx = index">
+                <ion-row class="ion-padding-top ion-padding-bottom">
+                    <ion-col size="6">
+                        <ion-text>
+                            <small class="font-weight-bold">Permiso: </small>
+                            <div>
+                                <small class="ion-margin-top">{{ item.name }}</small>
+                            </div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text>
+                            <small class="font-weight-bold">Saldo anterior:</small>
+                            <div><small class="ion-margin-top">{{ item.previous_balance }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-text>
+                            <small class="font-weight-bold">Descargo de permiso:</small>
+                            <div><small class="ion-margin-top">{{ item.permit_discharge }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-text>
+                            <small class="font-weight-bold">Saldo actual:</small>
+                            <div><small class="ion-margin-top">{{ item.current_balance }}</small></div>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ng-container>
+        </ion-col>
+    </ion-row>
+
+</ion-content>

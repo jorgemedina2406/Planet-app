@@ -1,0 +1,27 @@
+.contact-icon {
+    padding-left: 16px !important;
+}
+
+.circle-pic {
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+ion-toolbar h6 {
+    // color: #007dfe;
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+}
+
+ion-toolbar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ion-toolbar {
+    --background: url('../../assets/images/menuimg.png') bottom no-repeat;
+    --color: white;
+}

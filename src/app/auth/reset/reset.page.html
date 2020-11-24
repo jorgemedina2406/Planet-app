@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [text]="buttonText" [icon]="buttonIcon">
+            </ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form #form="ngForm" (ngSubmit)="resetPassword(form)">
+        <ion-grid>
+            <ion-row justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <div text-center>
+                        <img src="assets/images/logo.png" alt="" width="50%">
+                        <h3>Restaurar contraseña!</h3>
+                    </div>
+                    <div padding>
+                        <ion-item>
+                            <ion-input name="email" type="email" placeholder="email@email.com" ngModel required></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-input name="password_confirmation" type="password" placeholder="Confirmar Contraseña" ngModel required></ion-input>
+                        </ion-item>
+                    </div>
+                    <div padding>
+                        <ion-button size="large" color="tertiary" type="submit" expand="block">Restaurar</ion-button>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

@@ -1,0 +1,61 @@
+.segment-button-checked {
+    background-color: #fff !important;
+}
+
+ion-segment-button {
+    background-color: #eee !important;
+}
+
+a {
+    text-decoration: none;
+    color: #7ac142;
+}
+
+.segment-search {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+ion-searchbar {
+    width: 100% !important;
+}
+
+ion-list {
+    width: 90%;
+    position: absolute !important;
+    z-index: 4000;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.searchbar-input {
+    padding-right: 5px !important;
+}
+
+.campana {
+    width: 35px;
+    margin-top: 12px !important;
+}
+
+.estatus {
+    font-weight: 700;
+}
+
+ion-button {
+    font-size: 9px !important;
+    margin-top: 20px !important;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+    -webkit-padding-end: 5px !important;
+    padding-inline-end: 5px !important;
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+    padding-right: 5px !important;
+}

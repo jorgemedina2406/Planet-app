@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-segment class="ion-padding-top">
+            <h5>Preguntas Frecuentes</h5>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div [innerHtml]="myTemplate | safe: 'html'">
+    </div>
+
+</ion-content>

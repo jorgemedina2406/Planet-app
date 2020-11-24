@@ -1,0 +1,27 @@
+ion-slide>:first-child {
+    width: 100%;
+}
+
+ion-slide {
+    position: relative;
+    display: inline-block;
+    // text-align: center;
+    background-color: rgba(0, 0, 0);
+    z-index: 2000;
+}
+
+.segment-search {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.searchbar-input {
+    font-size: 10px !important;
+    padding-left: 40px;
+    padding-right: 10px;
+    width: 240px !important;
+}
+
+ion-searchbar {
+    width: 100% !important;
+}

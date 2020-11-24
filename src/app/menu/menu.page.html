@@ -1,0 +1,77 @@
+<ion-menu contentId="content" type="overlay">
+
+    <ion-header>
+        <ion-toolbar class="ion-text-center ion-padding">
+            <!-- <ion-avatar> -->
+            <label for="file-upload1" class="image" *ngIf="authService.user">
+                    <img width="120px" height="120px" class="circle-pic" [src]="authService.user.imagen | image:'user':authService.user.id" *ngIf="!imagenTemp">
+                    <img width="120px" height="120px" class="circle-pic" [src]="imagenTemp" *ngIf="imagenTemp">
+                </label>
+            <input (change)="seleccionImage($event)" id="file-upload1" name="file" type="file" style="display: none;" />
+
+            <!-- <div class="image" *ngIf="authService.user">
+                    <img width="120px" height="120px" class="circle-pic" [src]="authService.user.imagen | image:'user':authService.user.id">
+                </div> -->
+            <div *ngIf="authService.user">
+                <h4>{{ authService.user.nombre }} {{ authService.user.apellido }}</h4>
+                <small>{{ authService.user.correo }}</small>
+            </div>
+            <!-- </ion-avatar> -->
+
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+        <ng-container *ngFor="let p of pages">
+
+            <!-- Standard Menu Item -->
+            <ion-menu-toggle *ngIf="p.url">
+                <ion-item (click)="navigatePage(p.url)" routerLinkActive="active">
+                    <ion-icon color="primary" [src]="p.src" [name]="p.icon" slot="start"></ion-icon>
+                    <ion-label>
+                        {{ p.title }}
+                    </ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+            <!-- Item with Children -->
+
+        </ng-container>
+
+        <ion-menu-toggle>
+            <div *ngIf="authService.isAuthenticated()" class="ion-padding-bottom" style="position: absolute; bottom: 0; width: 100%; border-radius: 0px">
+                <ion-button style="bottom: 0; width: 100%; margin: 0px; border-radius: 0px" size="" color="primary" type="button" expand="full" (click)="logout()">
+                    <ion-icon color="light" src="/assets/icon/stand-by.svg" slot="start"></ion-icon>
+                    Cerrar sesión</ion-button>
+            </div>
+            <div *ngIf="!authService.isAuthenticated()" class="ion-padding-bottom" style="position: absolute; bottom: 0; width: 100%">
+                <ion-button style="bottom: 0; width: 100%; margin: 0px" size="" color="primary" type="button" expand="block" (click)="login()">
+                    <ion-icon color="light" src="/assets/icon/stand-by.svg" slot="start"></ion-icon>
+                    Iniciar sesión</ion-button>
+            </div>
+        </ion-menu-toggle>
+    </ion-content>
+
+</ion-menu>
+
+<ion-router-outlet id="content" main></ion-router-outlet>
+
+<ion-tabs *ngIf="authService.menu">
+    <ion-tab-bar slot="bottom" color="light">
+        <ion-tab-button [ngClass]="{'active': authService.activeClass === 'dashboard'}" (click)="navigatePage('/menu/dashboard')" routerLinkActive="active">
+            <ion-icon src="/assets/icon/internet.svg"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button [ngClass]="{'active': authService.activeClass === 'search'}" (click)="navigatePage('/menu/search')" routerLinkActive="active">
+            <ion-icon src="/assets/icon/lupa.svg"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button [ngClass]="{'active': authService.activeClass === 'account'}" (click)="navigatePage('/menu/account')" routerLinkActive="active">
+            <ion-icon src="/assets/icon/avatar.svg"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="callWithNumber('+525557850232')">
+            <ion-icon src="/assets/icon/call.svg"></ion-icon>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>

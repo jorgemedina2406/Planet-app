@@ -1,0 +1,40 @@
+<ion-content>
+    <form #form="ngForm" (ngSubmit)="login(form)" class="formLogin">
+        <ion-grid>
+            <ion-row>
+                <!-- <ion-col size-md="12">
+                    <div class="ion-float-end ion-padding-end">
+                        <a class="link-jump" color="success" [routerLink]="['/menu/dashboard']"> SALTAR</a>
+                    </div>
+                </ion-col> -->
+                <ion-col size-md="6" size-lg="5" size-xs="12">
+                    <div class="ion-text-center">
+                        <img src="assets/images/logo.png" alt="" width="70%">
+                    </div>
+                    <div class="ion-padding">
+                        <ion-item>
+                            <ion-icon color="light" src="/assets/icon/mail.svg" slot="start"></ion-icon>
+                            <ion-input name="email" type="text" placeholder="Usuario" ngModel required></ion-input>
+                        </ion-item>
+                        <ion-item class="ion-padding-top">
+                            <ion-icon color="light" src="/assets/icon/locked.svg" slot="start"></ion-icon>
+                            <ion-input #passwordEyeRegister name="password" background [type]="passwordTypeInput" placeholder="Contraseña" ngModel required></ion-input>
+                            <button type="button" slot="end" class="btn_eye_icon" (click)="togglePasswordMode()">
+                                <ion-icon [name]="iconpassword"></ion-icon>
+                            </button>
+                        </ion-item>
+                    </div>
+                    <div class="ion-padding">
+                        <ion-button size="large" class="text-blue font-weight-bold ion-text-capitalize" color="light" type="submit" expand="block">Entrar</ion-button>
+                    </div>
+                    <div class="ion-padding ion-text-center">
+                        ¿Aún no estas registrado? <a color="success" (click)="registerPage()"> Crea una cuenta</a>
+                    </div>
+                    <div class="ion-padding ion-text-center">
+                        <a color="medium" [routerLink]="['/forgot-password']"> ¿Olvido su contraseña? </a>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
+</ion-content>

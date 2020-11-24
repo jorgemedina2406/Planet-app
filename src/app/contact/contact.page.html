@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-segment>
+            <h5>Contáctenos</h5>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size-md="6" size-lg="5" size-xs="12">
+                <div class="ion-padding ion-text-center">
+                    <ion-text color="primary">
+                        Si tiene alguna duda o comentario, podrás contactarnos:
+                    </ion-text>
+                    <ion-list class="ion-padding-top">
+                        <ion-item>
+                            <ion-icon color="dark" src="/assets/icon/internet.svg" item-start></ion-icon>
+                            <ion-label>
+                                <p><a href="https://planetlogistic.com.mx" target="_blank">planetlogistic.com.mx</a></p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-icon color="dark" src="/assets/icon/pin.svg" item-start></ion-icon>
+                            <ion-label>
+                                <p> Ciudad de México, Cdmx, México</p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-icon color="dark" src="/assets/icon/call.svg" item-start></ion-icon>
+                            <ion-label>
+                                <p><a href="tel:+525557850232" target="_blank">55 5785 0232</a></p>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item lines="none" id="contact-info">
+                            <ion-icon color="dark" src="/assets/icon/time.svg" item-start></ion-icon>
+                            <ion-label>
+                                <p>Lunes 7:00 am a 5pm</p>
+                                <p>Martes 7:00 am a 5pm</p>
+                                <p>Miercoles 7:00 am a 5pm</p>
+                                <p>Jueves 7:00 am a 5pm</p>
+                                <p>Viernes 7:00 am a 5pm</p>
+                                <p>Sabado 7:00 am a 5pm</p>
+                                <p>Domingo 7:00 am a 5pm</p>
+                            </ion-label>
+                        </ion-item>
+                    </ion-list>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

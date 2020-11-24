@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-segment class="ion-padding-top" style="margin-top: 5px;">
+            Planet Logistic
+        </ion-segment>
+        <ion-buttons slot="end" class="notification-icon-button ion-padding">
+            <ion-badge class="notification-badge">{{ authService.qtyNotification }}</ion-badge>
+            <ion-icon slot="icon-only" src="/assets/icon/campana.svg" (click)="navigatePage('/menu/notifications')"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar color="light">
+        <div class="searchbar">
+
+            <ion-searchbar type="text" debounce="500" (ionChange)="getItems($event)" placeholder="Buscar.." animated></ion-searchbar>
+
+        </div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list *ngIf="isItemAvailable">
+        <ng-container *ngIf="length > 0">
+            <ng-container *ngFor="let item of items">
+                <ion-item (click)="navigatePageType(link, item.id)" *ngIf="items.length > 0">
+                    <label>
+                    <h6 style="margin-bottom: 0px">
+                        {{ item.reference }}
+                    </h6>
+                    <small *ngIf="exportacion">Exportacion</small>
+                    <small *ngIf="importacion">Importacion</small>
+                </label>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="length == 0">
+            <ng-container>
+                <ion-item>
+                    <label class="ion-padding-bottom">
+                            <h6 style="margin-bottom: 0px">
+                                No se encontraron resultados
+                            </h6>
+                        </label>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+    </ion-list>
+
+    <app-features [refresh]="refresh"></app-features>
+
+</ion-content>
+
+<!-- <ion-nav id="nav" #content [root]="rootPage"></ion-nav> -->

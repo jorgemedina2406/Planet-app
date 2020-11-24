@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-segment>
+            <h5>Info de la App</h5>
+        </ion-segment>
+        <ion-buttons slot="end" class="ion-padding">
+            <ion-icon slot="icon-only" src="assets/icon/info.svg"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size-md="6" size-lg="5" size-xs="12">
+                <div class="ion-text-center">
+                    <img src="assets/images/logo.png" alt="" width="70%">
+                </div>
+                <div class="ion-text-center ion-padding">
+                    <ion-text color="success">
+                        <a href="https://planetlogistic.com.mx" target="_blank">planetlogistic.com.mx</a>
+                    </ion-text>
+                    <p>Todos los derechos reservados.</p>
+
+                    <ion-text class="ion-padding">
+                        Ciudad de México, Cdmx, México, WhatsApp - 55 5785 0232
+                        <p>info@planetlogistic.com.mx</p>
+                        <p>Desarrollo por <a href="https://dosbytes.com.mx" target="_blank">dosbytes.com.mx</a></p>
+                    </ion-text>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>

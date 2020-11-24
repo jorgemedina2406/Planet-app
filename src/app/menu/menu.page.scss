@@ -1,0 +1,30 @@
+.circle-pic {
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.active a {
+    background-color: #eee !important;
+}
+
+button {
+    border-radius: 0px !important;
+    border-width: 0px !important;
+    border-style: outset;
+}
+
+.button-native {
+    border-radius: 0px !important;
+}
+
+ion-button {
+    border-radius: 0px !important;
+}
+
+ion-toolbar {
+    --background: url('../../assets/images/menuimg.png') bottom no-repeat;
+    --color: white;
+}

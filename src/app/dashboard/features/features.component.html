@@ -1,0 +1,66 @@
+<ion-card color="warning" (click)="navigatePage('/exports')">
+    <ion-card-content no-padding>
+        <ion-row>
+            <ion-col col-12>
+                <ion-text *ngIf="exports">
+
+                    <h1 class="ion-text-center">{{ exports.length }}</h1>
+
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="pl-3" size="4">
+                <!-- <a [routerLink]="['/menu/property', property.tipo_slug, property.slug]"> -->
+                <ion-icon class="iconSize" src="/assets/icon/exportar.svg"></ion-icon>
+                <!-- </a> -->
+            </ion-col>
+            <ion-col class="pb-3" size="8">
+                <ion-row>
+                    <ion-col col-12>
+                        <ion-text>
+                            <!-- <a color="success" [routerLink]="['/menu/property', property.tipo_slug, property.slug]"> -->
+                            <h2 no-margin>Exportaciones</h2>
+                            <h4>Numero de exportaciones</h4>
+                            <!-- </a> -->
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-card-content>
+</ion-card>
+<ion-card color="tertiary" (click)="navigatePage('/menu/imports')">
+    <ion-card-content no-padding>
+        <ion-row>
+            <ion-col col-12>
+                <ion-text *ngIf="imports">
+
+                    <h1 class="ion-text-center">{{ imports.length }}</h1>
+
+                </ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="pl-3" size="4">
+                <!-- <a [routerLink]="['/menu/property', property.tipo_slug, property.slug]"> -->
+                <!-- <img src="/assets/icon/import.png" alt=""> -->
+                <ion-icon class="iconSize" src="/assets/icon/importacion.svg"></ion-icon>
+                <!-- </a> -->
+            </ion-col>
+            <ion-col class="pb-3" size="8">
+                <ion-row>
+                    <ion-col col-12>
+                        <ion-text>
+                            <!-- <a color="success" [routerLink]="['/menu/property', property.tipo_slug, property.slug]"> -->
+                            <h2 no-margin>Importaciones</h2>
+                            <h4>Numero de importaciones</h4>
+
+                            <!-- </a> -->
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-card-content>
+</ion-card>

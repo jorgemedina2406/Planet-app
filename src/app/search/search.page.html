@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" (click)="navigatePageBack()" class="ion-padding">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-segment class="ion-padding-top ion-padding-bottom">
+            <div class="searchbar">
+                <ion-searchbar #searchBar type="text" debounce="500" (ionChange)="getItems($event)" placeholder="Buscar.." animated></ion-searchbar>
+            </div>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list *ngIf="isItemAvailable" class="pt-0">
+
+        <ng-container *ngIf="length > 0">
+            <ng-container *ngFor="let item of items">
+                <ion-item (click)="navigatePage(link, item.id)" color="dark" *ngIf="items.length > 0">
+                    <label class="ion-padding-bottom">
+                            <h6 style="margin-bottom: 0px">
+                                {{ item.reference }}
+                            </h6>
+                            <small *ngIf="exportacion">Exportacion</small>
+                            <small *ngIf="importacion">Importacion</small>
+                        </label>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="length == 0">
+            <ng-container>
+                <ion-item color="dark">
+                    <label class="ion-padding-bottom">
+                            <h6 style="margin-bottom: 0px">
+                                No se encontraron resultados
+                            </h6>
+                        </label>
+                </ion-item>
+            </ng-container>
+        </ng-container>
+    </ion-list>
+    <!-- <ion-list *ngIf="!isItemAvailable" class="pt-0">
+        <ng-container *ngFor="let item of items">
+            <ion-item color="dark">
+                <label class="ion-padding-bottom">
+                        <h6 style="margin-bottom: 0px" *ngIf="items.length > 0">
+                            No se encontraron resultados
+                        </h6>
+                    </label>
+            </ion-item>
+        </ng-container>
+    </ion-list> -->
+</ion-content>
